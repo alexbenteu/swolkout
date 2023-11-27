@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="/js/validation.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <h1>SIGNUP</h1>
+    <div class="contents">
+    <form action="process-signup.php" method="post" id="signup" novalidate onsubmit="">
+        <table>
+            <tr>
+                 <label for="name">name: </label>  
+                 <input id="name" name="name">  
+            </tr>
+            <tr>
+                 <label for="email">email: </label>  
+                 <input type="email" id="email" name="email">  
+            </tr>
+            <tr>
+                 <label for="password">password: </label>  
+                 <input type="password" id="password" name="password">  
+            </tr>
+            <tr>
+                 <label for="password_confirmation">repeat password: </label>  
+                 <input type="password" id="password_confirmation" name="password_confirmation">  
+            </tr>
+            <tr>
+                <td style="text-align: center;"><button type="submit">sign up</button>  
+                <td style="text-align: center;"><button type="reset">reset</button>  
+            </tr>
+        </table>
+       
+    </form>
+    </div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
