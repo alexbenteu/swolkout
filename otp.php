@@ -43,6 +43,7 @@ try {
 }
 
 ?>
+<!DOCTYPE HTML>
 <html>
     <head>
         <title>OTP</title>
@@ -55,17 +56,19 @@ try {
             <form method="post" action="verify-otp.php">
                 <table>
                     <tr>
-                         <label for="otp">enter otp: </label>  
-                         <input type="text" id="otp" name="otp" required>  
+                        <td colspan="2"><h1>OTP</h1></td>
                     </tr>
+                    <tr><td><br></td></tr>
                     <tr>
-                         <button type="submit">verify</button>  
-                         <button type="button">resend</button>  
+                         <td style="text-align: center;"><label for="otp">enter otp: </label></td>  
+                         <td style="text-align: center;"><input type="text" id="otp" name="otp" required></td>  
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr>
+                         <td style="text-align: center;"><button type="submit">verify</button></td>  
+                         <td style="text-align: center;"><button type="button" onclick="window.location.reload();">resend</button></td>  
                     </tr>
                 </table>
-                
-                
-                
             </form>
         </div>
     </body>

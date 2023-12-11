@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['days'])) {
     $deleteStmt = $mysqli->prepare("DELETE FROM workout_days WHERE id = ?");
     $deleteStmt->bind_param("i", $userId);
     $deleteStmt->execute();
-
+    if (!empty($days)) {
     foreach ($days as $day) {  
         $sql = "INSERT INTO workout_days (id, day) VALUES (?, ?)";
         $stmt = $mysqli->prepare($sql);
@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['days'])) {
             echo "Error: " . $stmt->error;
             exit;
         }
-    }
-    header("location: index.php");
+    }}
+    header("location: home.php");
     exit;
 }
 ?>

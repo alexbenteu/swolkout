@@ -15,8 +15,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $mysqli = require __DIR__ . "/database.php";
 
-$error_ex = 0;
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id = $_SESSION["user_id"];
@@ -30,43 +28,60 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("iss", $id, $_POST["newWeight"], $date);
                     
     if ($stmt->execute()) {
-        header("location: index.php");
+        header("location: home.php");
         exit;
         
     }
 }
 
 ?>
-
+<!DOCTYPE HTML>
 <html>
     <head>
         <title>Add Weight</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <div>
-            <h1>ADD WEIGHT</h1>
-            <div class="contents">
-                <table>
-                    <form method="POST">
-                            <tr>
-                                 <label for="newWeight">new weight:</label>  
-                                 <input type="text" id="newWeight" name="newWeight">  
-                            </tr>
-                            <tr>
-                                 <?php if ($error_ex === 1) echo $error; ?>  
-                            </tr>
-                            <tr>
-                                 <button class="button" type="submit">add to database</button>  
-                            </tr>
-                    </form>
-                </table>
-    </div></div>
+    <table>
+            <tr id = "title">
+                <td colspan="5"><a href="home.php">SWOLKOUT</a></td>
+            </tr>
+            <tr id = "meniu">
+            <td><a href="addweight.php">add weight</a></td>
+                <td><a href="addworkout.php">add workout</a></td>
+                <td><a href="history.php">workout history</a></td>
+                <td><a href="set_reminders.php">set reminders</a></td>
+                <td><a href="logout.php">log out</a></td>
+            </tr>
+            <tr id = "body">
+                <td colspan="5">
+                    <div class="contents">
+                        <table>
+                            <form method="POST">
+                                <tr>
+                                    <td><label for="newWeight">new weight:</label></td>
+                                    <td><input type="text" id="newWeight" name="newWeight" required></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;" colspan="2"><button class="button" type="submit" onclick="alerta()">add to database</button></td>
+                                </tr>
+                            </form>
+                        </table> 
+                    </div>
+                    
+                </td>
+            </tr>
+        </table>
+        <script>
+            function alerta() {
+            alert("weight saved successfully");
+        }
+        </script>
     </body>
 </html>

@@ -9,35 +9,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-    <h1>SIGNUP</h1>
     <div class="contents">
     <form action="process-signup.php" method="post" id="signup" novalidate onsubmit="">
         <table>
             <tr>
-                 <label for="name">name: </label>  
-                 <input id="name" name="name">  
+                <td colspan="2"><h1>SIGN UP</h1></td>
             </tr>
             <tr>
-                 <label for="email">email: </label>  
-                 <input type="email" id="email" name="email">  
+                 <td><label for="name">name: </label></td>  
+                 <td><input type="text" id="name" name="name"></td>  
             </tr>
+            <tr><td><br></td></tr>
             <tr>
-                 <label for="password">password: </label>  
-                 <input type="password" id="password" name="password">  
+                 <td><label for="email">email: </label>  </td>
+                 <td><input type="email" id="email" name="email"></td>  
             </tr>
+            <tr><td><br></td></tr>
             <tr>
-                 <label for="password_confirmation">repeat password: </label>  
-                 <input type="password" id="password_confirmation" name="password_confirmation">  
+                 <td><label for="password">password: </label></td>  
+                 <td><input type="password" id="password" name="password"> </td> 
             </tr>
+            <tr><td><br></td></tr>
+            <tr>
+                 <td><label for="password_confirmation">repeat password: </label></td>  
+                 <td><input type="password" id="password_confirmation" name="password_confirmation"></td>  
+            </tr>
+            <tr><td><br></td></tr>
             <tr>
                 <td style="text-align: center;"><button type="submit">sign up</button>  
                 <td style="text-align: center;"><button type="reset">reset</button>  
             </tr>
         </table>
-       
+    </div>
     </form>
-    </div></div>
 </body>
 </html>
 

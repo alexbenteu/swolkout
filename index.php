@@ -4,8 +4,8 @@ session_start();
 
 if (isset($_SESSION["user_id"])) {
     
-    if ($_SESSION["otpOK"] == "nu") {
-        header('Location: otp.php');
+    if ($_SESSION["email"] == "admin@example.com") {
+        header('Location: admin.php');
         exit;
     }
     $mysqli = require __DIR__ . "/database.php";
@@ -33,44 +33,12 @@ if (isset($_SESSION["user_id"])) {
 
     <body>
         <?php if (isset($user)): ?>
-            <div>
-                <h1>HOME</h1>
-                <div class="contents">
-                    <table id="toStyle">
-                        <tr>
-                             <a href="weightchart.php">weight chart</a>  
-                        </tr>
-                        <tr>
-                             <a href="exercisechart.php">exercise chart</a>  
-                        </tr>
-                        <tr>
-                             <a href="addweight.php">add weight</a>  
-                        </tr>
-                        <tr>
-                             <a href="addworkout.php">add workout</a>  
-                        </tr>
-                        <tr>
-                             <a href="workoutreminder.php">workout reminder</a>  
-                        </tr>
-                        <tr>
-                             <a href="weightreminder.php">weight reminder</a>  
-                        </tr>
-                        <tr>
-                             <a href="logout.php">log out</a>  
-                        </tr>
-                </table></div>
-            </div>
+            <?php header("location: home.php"); ?>
         <?php else: ?>
-            <div>
-                <h1>HELLO</h1>
-                <div class="contents">
-                    <table id="toStyle">
-                        <tr>
-                             <a href="login.php">log in</a>  
-                        </tr>
-                        <tr>
-                             <a href="signup.html">sign up</a>  
-                </table></div>
+            <div class="contents">
+                <h1>HELLO</h1><br><br><br>
+                <a href="login.php">log in</a><br>
+                <a href="signup.html">sign up</a>  
             </div>           
         <?php endif; ?>
         

@@ -4,9 +4,6 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit;
-}elseif ($_SESSION["email"] == "admin@example.com") {
-    header('Location: admin.php');
-    exit;
 }
 ?>
 
@@ -22,17 +19,23 @@ if (!isset($_SESSION['user_id'])) {
     </head>
     <body>
         <div>
-            <h1>ADMIN</h1>
+            
             <div class="contents">
                 <table>
                     <tr>
-                         <button class="button" onclick="openExercise()">add new exercise</button>  
+                        <td><h1>ADMIN</h1></td>
                     </tr>
+                    <tr><td><br></td></tr>
                     <tr>
-                         <button class="button" onclick="openReset()">reset admin password</button>  
+                         <td><button class="button" onclick="openExercise()">add new exercise</button></td>
                     </tr>
+                    <tr><td><br></td></tr>
                     <tr>
-                         <button class="button" onclick="openLogOut()">log out</button>  
+                         <td><button class="button" onclick="openReset()">reset admin password</button></td>
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr>
+                         <td><button class="button" onclick="openLogOut()">log out</button></td>
                     </tr>
                 </table>
         </div></div>

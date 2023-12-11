@@ -1,2 +1,4 @@
 bench press
 deadlift
+lateral raises
+shrugs

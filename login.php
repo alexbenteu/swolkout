@@ -49,31 +49,45 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </head>
 </head>
 <body>
-    <div>
-    <h1>LOGIN</h1>
+    
     <div class="contents">
-    <?php if ($is_invalid): ?>
-        <em>invalid login</em>
-    <?php endif; ?>
+    
     <form method="post">
         <table>
             <tr>
-                 <label for="email">email: </label>  
-                 <input type="email" name="email" id="email"
+                <td colspan="2"><h1>LOGIN</h1></td>
+            </tr>
+            <tr><td><br></td></tr>
+            <tr><td colspan="2">
+                <?php if ($is_invalid): ?>
+                <em style="color: red;">invalid login</em>
+                <?php endif; ?>
+            </td></tr>
+            <tr><td><br></td></tr>
+            <tr><td>
+                 <label for="email">email: </label>  </td>
+                 <td><input type="email" name="email" id="email"
                value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">  
-            </tr>
-            <tr>
-                 <label for="password">password: </label>  
-                 <input type="password" name="password" id="password">  
-            </tr>
+            </td></tr>
+            <tr><td><br></td></tr>
+            <tr><td>
+                 <label for="password">password: </label>  </td>
+                 <td><input type="password" name="password" id="password">  
+            </td></tr>
+            <tr><td><br></td></tr>
             <tr>
                 <td style="text-align: center;"><button type="submit">log in</button>  
-                <td style="text-align: center;"><button type="reset">reset</button>  
+                <td style="text-align: center;"><button type="button" onclick="openResetPasswordPage()">reset password</button>  
             </tr>
         </table>
         
     </form>
-    </div></div>
+    </div>
+    <script>
+    function openResetPasswordPage() {
+        window.location.href = "reset_password.php";
+    }
+</script>
 </body>
 </html>
 

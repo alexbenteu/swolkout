@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (empty($_POST["name"])) {
     die("Name is required");
 }
@@ -42,7 +47,20 @@ $_POST["email"],
 $password_hash);
                   
 if ($stmt->execute()) {
-    header("Location: signup-success.html");
+    session_start();       
+    session_regenerate_id();
+    $email = $_POST["email"];
+    $sql2 = "SELECT id FROM user_credintials WHERE email = ?";
+    $stmt2 = $mysqli->prepare($sql2);
+    $stmt2->bind_param("s", $email);
+    $stmt2->execute();
+    $stmt2->bind_result($id);
+    $stmt2->fetch();
+
+    $_SESSION["user_id"] = $id;
+    $_SESSION["email"] = $_POST["email"];
+    $_SESSION["otpOK"] = "nu";
+    header("Location: otp.php");
     exit;
     
 } else {
@@ -53,7 +71,4 @@ if ($stmt->execute()) {
         die($mysqli->error . " " . $mysqli->errno);
     }
 }
-
-
-
 ?>
